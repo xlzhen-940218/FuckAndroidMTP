@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LTRData.Extensions.Native</name>
+    </assembly>
+    <members>
+        <member name="T:LTRData.Extensions.Native.NativeCompareExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:LTRData.Extensions.Native.NativeLib">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeLib.Win32Try``1(``0)">
+            <summary>
+            Encapsulates call to a Win32 API function that returns a value where failure
+            is indicated as a NULL return and GetLastError() returns an error code. If
+            non-zero value is passed to this method it just returns that value. If zero
+            value is passed, it calls GetLastError() and throws a managed exception for
+            that error code.
+            </summary>
+            <param name="result">Return code from a Win32 API function call.</param>
+        </member>
+    </members>
+</doc>

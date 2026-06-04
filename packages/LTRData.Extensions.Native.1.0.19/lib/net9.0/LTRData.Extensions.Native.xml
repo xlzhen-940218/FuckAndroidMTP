@@ -1,0 +1,452 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LTRData.Extensions.Native</name>
+    </assembly>
+    <members>
+        <member name="T:LTRData.Extensions.Native.Memory.NativeMemory`1">
+            <summary>
+            Represents unmanaged memory managed by native code
+            </summary>
+            <typeparam name="T">Type of elements in the memory</typeparam>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeMemory`1.#ctor(System.IntPtr,System.Int32)">
+            <summary>
+            Represents unmanaged memory managed by native code
+            </summary>
+            <typeparam name="T">Type of elements in the memory</typeparam>
+        </member>
+        <member name="P:LTRData.Extensions.Native.Memory.NativeMemory`1.Address">
+            <summary>
+            Unmanaged pointer to memory.
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Native.Memory.NativeMemory`1.Length">
+            <summary>
+            Number of elements at memory address.
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Native.Memory.NativeMemory`1.IsNull">
+            <summary>
+            Return value indicating whether this object represents an unmanaged NULL pointer.
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Native.Memory.NativeMemory`1.IsEmpty">
+            <summary>
+            Return value indicating whether this object represents an unmanaged NULL pointer
+            or zero-length memory.
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Native.Memory.NativeMemory`1.Span">
+            <summary>
+            Gets a <see cref="T:System.Span`1"/> for this memory block.
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeMemory`1.GetMemoryManager">
+            <summary>
+            Gets a disposable <see cref="T:System.Buffers.MemoryManager`1"/> for this memory block. This can
+            be used to get a <see cref="T:System.Memory`1"/> that can be sent to asynchronous API or
+            delegates. Remember though, that the memory could be invalid after return to
+            native caller, so make sure that no asynchronous operations use the memory after
+            returning from consuming methods.
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeMemory`1.GetStream">
+            <summary>
+            Gets a disposable <see cref="T:System.IO.UnmanagedMemoryStream"/> for this memory block.
+            Remember though, that the memory is invalid after return to native caller, so
+            make sure that no asynchronous operations use the memory after returning from
+            consuming methods.
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeMemory`1.RentArray">
+            <summary>
+            Rents an array from shared array pool for use when arrays are needed. Note that
+            returned array could be larger than length of original native buffer, the Length
+            property of returned <see cref="T:System.ArraySegment`1"/> indicates how much of the array
+            can be used for later copying back to native buffer.
+            
+            After use, the returned array should be returned to the array pool again by calling
+            <see cref="M:LTRData.Extensions.Native.Memory.NativeMemory`1.ReturnArray(`0[],System.Boolean)" /> method. This will also copy array contents back to native
+            buffer so that calling native library receives the data written to array.
+            </summary>
+            <returns><see cref="T:System.ArraySegment`1"/> containing a reference to rented array
+            and useful length of the array.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeMemory`1.ReturnArray(`0[],System.Boolean)">
+            <summary>
+            Returns an array to shared array pool that was previously returned by <see cref="M:LTRData.Extensions.Native.Memory.NativeMemory`1.RentArray"/>
+            and copies array contents to original native buffer so that native caller receives the
+            data written to the array.
+            </summary>
+            <param name="array">Array returned by <see cref="M:LTRData.Extensions.Native.Memory.NativeMemory`1.RentArray"/></param>
+            <param name="clearArray">Indicates whether the contents of the buffer should be cleared before reuse.</param>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeMemory`1.ToString">
+            <summary>
+            Returns a string describing the native buffer. If element type is <see cref="T:System.Char"/>,
+            a string with the same characters as in original buffer is returned.
+            </summary>
+            <returns>String describing the native buffer</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeMemory`1.AsReadOnly">
+            <summary>
+            Returns a read-only representation of the same memory block as current.
+            </summary>
+            <returns>An <see cref="T:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1"/> structure.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeMemory`1.Slice(System.Int32)">
+            <summary>
+            Forms a slice out of the current memory block that begins at a specified index.
+            </summary>
+            <param name="start">The index at which to begin the slice.</param>
+            <returns>A span that consists of all elements of the current memory block from start to the end of the memory block.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">start is less than zero or greater than <see cref="P:LTRData.Extensions.Native.Memory.NativeMemory`1.Length" />.</exception>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeMemory`1.Slice(System.Int32,System.Int32)">
+            <summary>
+            Forms a slice out of the current memory block starting at a specified index for a specified length.
+            </summary>
+            <param name="start">The index at which to begin the slice.</param>
+            <param name="length">The desired length for the slice.</param>
+            <returns>A memory block that consists of length elements of the current memory block from start to the end of the memory block.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">start or start + length is less than zero or greater than <see cref="P:LTRData.Extensions.Native.Memory.NativeMemory`1.Length" />.</exception>
+        </member>
+        <member name="T:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1">
+            <summary>
+            Represents read only unmanaged memory managed by native code
+            </summary>
+            <typeparam name="T">Type of elements in the memory</typeparam>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.#ctor(System.IntPtr,System.Int32)">
+            <summary>
+            Represents read only unmanaged memory managed by native code
+            </summary>
+            <typeparam name="T">Type of elements in the memory</typeparam>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.op_Implicit(LTRData.Extensions.Native.Memory.NativeMemory{`0})~LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory{`0}">
+            <summary>
+            Converts existing <see cref="T:LTRData.Extensions.Native.Memory.NativeMemory`1"/> to a <see cref="T:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1"/>
+            </summary>
+            <param name="origin">Source <see cref="T:LTRData.Extensions.Native.Memory.NativeMemory`1"/></param>
+            <returns>New <see cref="T:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1"/></returns>
+        </member>
+        <member name="P:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.Address">
+            <summary>
+            Unmanaged pointer to memory.
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.Length">
+            <summary>
+            Number of elements at memory address.
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.IsNull">
+            <summary>
+            Return value indicating whether this object represents an unmanaged NULL pointer.
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.IsEmpty">
+            <summary>
+            Return value indicating whether this object represents an unmanaged NULL pointer
+            or zero-length memory.
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.Span">
+            <summary>
+            Gets a <see cref="T:System.ReadOnlySpan`1"/> for this memory block.
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.GetMemoryManager">
+            <summary>
+            Gets a disposable <see cref="T:System.Buffers.MemoryManager`1"/> for this memory block. This can
+            be used to get a <see cref="T:System.Memory`1"/> that can be sent to asynchronous API or
+            delegates. Remember though, that the memory is invalid after return to native
+            caller, so make sure that no asynchronous operations use the memory after
+            returning from implementation methods.
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.GetStream">
+            <summary>
+            Gets a disposable <see cref="T:System.IO.UnmanagedMemoryStream"/> for this memory block.
+            Remember though, that the memory is invalid after return to native caller, so
+            make sure that no asynchronous operations use the memory after returning from
+            implementation methods.
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.RentArray">
+            <summary>
+            Rents an array from shared array pool for use when arrays are needed. Data from
+            original native buffer is copied into the array. Note that returned array could
+            be larger than length of original native buffer, the Length property of returned
+            <see cref="T:System.ArraySegment`1"/> indicates how much of the array contains valid data.
+            
+            After use, the returned array should be returned to the array pool again by calling
+            <see cref="M:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.ReturnArray(`0[],System.Boolean)" /> method.
+            </summary>
+            <returns><see cref="T:System.ArraySegment`1"/> containing a reference to rented array
+            and length of valid data in the array.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.ReturnArray(`0[],System.Boolean)">
+            <summary>
+            Returns an array to shared array pool that was previously returned by <see cref="M:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.RentArray"/>
+            </summary>
+            <param name="array">Array returned by <see cref="M:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.RentArray"/></param>
+            <param name="clearArray">Indicates whether the contents of the buffer should be cleared before reuse.</param>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.ToString">
+            <summary>
+            Returns a string describing the native buffer. If element type is <see cref="T:System.Char"/>,
+            a string with the same characters as in original buffer is returned.
+            </summary>
+            <returns>String describing the native buffer</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.Slice(System.Int32)">
+            <summary>
+            Forms a slice out of the current memory block that begins at a specified index.
+            </summary>
+            <param name="start">The index at which to begin the slice.</param>
+            <returns>A span that consists of all elements of the current memory block from start to the end of the memory block.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">start is less than zero or greater than <see cref="P:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.Length" />.</exception>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.Slice(System.Int32,System.Int32)">
+            <summary>
+            Forms a slice out of the current memory block starting at a specified index for a specified length.
+            </summary>
+            <param name="start">The index at which to begin the slice.</param>
+            <param name="length">The desired length for the slice.</param>
+            <returns>A memory block that consists of length elements of the current memory block from start to the end of the memory block.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">start or start + length is less than zero or greater than <see cref="P:LTRData.Extensions.Native.Memory.ReadOnlyNativeMemory`1.Length" />.</exception>
+        </member>
+        <member name="T:LTRData.Extensions.Native.Memory.NativeMemoryHelper">
+            <summary>
+            Static helper functions for <see cref="T:LTRData.Extensions.Native.Memory.NativeMemory`1"/> implementation.
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeMemoryHelper.GetStringFromSpan(System.ReadOnlySpan{System.Char})">
+            <summary>
+            Returns a <see cref="T:System.String"/> object representing the same value as a
+            <see cref="T:System.ReadOnlySpan`1"/>. For some string values that are very common
+            for file system implementations, a cached intern string is returned instead of
+            creating a new instance.
+            </summary>
+            <param name="span">Source string</param>
+            <returns>Resulting string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeMemoryHelper.SetString(System.Span{System.Char},System.String)">
+            <summary>
+            Copies characters from a <see cref="T:System.String"/> to a <see cref="T:System.Span`1"/>,
+            clearing remainder of the target memory if larger than the source string. If source is
+            longer than target buffer size, target receives a truncated version of source string.
+            </summary>
+            <param name="buffer">Target buffer</param>
+            <param name="str">Source string to copy to buffer</param>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeMemoryHelper.SetString(System.Span{System.Char},System.ReadOnlySpan{System.Char})">
+            <summary>
+            Copies characters from a <see cref="T:System.ReadOnlySpan`1"/> to a <see cref="T:System.Span`1"/>,
+            clearing remainder of the target memory if larger than the source string. If source is
+            longer than target buffer size, target receives a truncated version of source string.
+            </summary>
+            <param name="buffer">Target buffer</param>
+            <param name="str">Source string to copy to buffer</param>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeMemoryHelper.SetString(LTRData.Extensions.Native.Memory.NativeMemory{System.Char},System.String)">
+            <summary>
+            Copies characters from a <see cref="T:System.String"/> to a <see cref="T:LTRData.Extensions.Native.Memory.NativeMemory`1"/>,
+            clearing remainder of the target memory if larger than the source string. If source is
+            longer than target buffer size, target receives a truncated version of source string.
+            </summary>
+            <param name="buffer">Target buffer</param>
+            <param name="str">Source string to copy to buffer</param>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeMemoryHelper.SetString(LTRData.Extensions.Native.Memory.NativeMemory{System.Char},System.ReadOnlySpan{System.Char})">
+            <summary>
+            Copies characters from a <see cref="T:System.ReadOnlySpan`1"/> to a <see cref="T:LTRData.Extensions.Native.Memory.NativeMemory`1"/>,
+            clearing remainder of the target memory if larger than the source string. If source is
+            longer than target buffer size, target receives a truncated version of source string.
+            </summary>
+            <param name="buffer">Target buffer</param>
+            <param name="str">Source string to copy to buffer</param>
+        </member>
+        <member name="T:LTRData.Extensions.Native.Memory.NativeStructWrapper">
+            <summary>
+            Static support class for <see cref="T:LTRData.Extensions.Native.Memory.NativeStructWrapper`1"/>.
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeStructWrapper.Wrap``1(``0)">
+            <summary>
+            Creates a <see cref="T:LTRData.Extensions.Native.Memory.NativeStructWrapper`1"/> wrapper for a managed object.
+            </summary>
+            <typeparam name="T">Type of managed object to wrap</typeparam>
+            <param name="obj">Managed object to wrap</param>
+            <returns>A <see cref="T:LTRData.Extensions.Native.Memory.NativeStructWrapper`1"/> wrapper for a managed object</returns>
+        </member>
+        <member name="T:LTRData.Extensions.Native.Memory.NativeStructWrapper`1">
+            <summary>
+            This class allocates unmanaged memory for a native structure and initializes
+            that memory by marshalling a managed object. It gurantees that the managed
+            object stays alive and the unmanaged memory block is valid for at least the
+            lifetime of this object and that the unmanaged memory is released when this
+            object is disposed.
+            
+            Since this class derives form SafeBuffer there are many instance methods
+            available to read and modify the unmanaged buffer in a safe way and when
+            marshalled to native code in for example a P/Invoke call, it gets automatically
+            translated to the address of the unmanaged memory block. It also uses reference
+            counting and is guaranteed to stay alive during such calls.
+            <see cref="T:System.Runtime.InteropServices.SafeBuffer"/>
+            </summary>
+            <typeparam name="T">Type of managed object</typeparam>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeStructWrapper`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance by allocating unmanaged memory and marshalling
+            the supplied managed object to that memory.
+            </summary>
+            <param name="obj">Managed object to marshal to unmanaged memory</param>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeStructWrapper`1.#ctor">
+            <summary>
+            Initializes an empty instance. Used internally by native marshaller and
+            not intended to be used directly from user code.
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Native.Memory.NativeStructWrapper`1.Object">
+            <summary>
+            Managed object that was originally marshalled to unmanaged memory.
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.Memory.NativeStructWrapper`1.ReleaseHandle">
+            <summary>
+            Releases unmanaged memory used by this instance.
+            </summary>
+            <returns>Always returns true</returns>
+        </member>
+        <member name="T:LTRData.Extensions.Native.NativeCompareExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeCompareExtensions.BinaryEqual(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Compares two byte spans using C runtime memcmp function.
+            </summary>
+            <param name="first">First span</param>
+            <param name="second">Second span</param>
+            <returns>If sequences are both empty, true is returned. If sequences have different lengths, false is returned.
+            If lengths are equal and byte sequences are equal, true is returned.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeCompareExtensions.BinaryEqual(System.Span{System.Byte},System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Compares two byte spans using C runtime memcmp function.
+            </summary>
+            <param name="first">First span</param>
+            <param name="second">Second span</param>
+            <returns>If sequences are both empty, true is returned. If sequences have different lengths, false is returned.
+            If lengths are equal and byte sequences are equal, true is returned.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeCompareExtensions.BinaryCompare(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Compares two byte spans using C runtime memcmp function.
+            </summary>
+            <param name="first">First span</param>
+            <param name="second">Second span</param>
+            <returns>Result of memcmp comparison.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeCompareExtensions.BinaryCompare(System.Span{System.Byte},System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Compares two byte spans using C runtime memcmp function.
+            </summary>
+            <param name="first">First span</param>
+            <param name="second">Second span</param>
+            <returns>Result of memcmp comparison.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeCompareExtensions.BinaryEqual``1(System.ReadOnlySpan{``0},System.ReadOnlySpan{``0})">
+            <summary>
+            Compares two spans using C runtime memcmp function.
+            </summary>
+            <param name="first">First span</param>
+            <param name="second">Second span</param>
+            <returns>If sequences are both empty, true is returned. If sequences have different lengths, false is returned.
+            If lengths are equal and byte sequences are equal, true is returned.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeCompareExtensions.BinaryCompare``1(System.ReadOnlySpan{``0},System.ReadOnlySpan{``0})">
+            <summary>
+            Compares two spans using C runtime memcmp function.
+            </summary>
+            <param name="first">First span</param>
+            <param name="second">Second span</param>
+            <returns>Result of memcmp comparison.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeCompareExtensions.IsBufferZero(System.Byte[])">
+            <summary>
+            Determines whether all bytes in a buffer are zero. If ntdll.RtlIsZeroMemory is available it is used,
+            otherwise it falls back to a native method that compares groups of bytes is an optimized way.
+            </summary>
+            <param name="buffer"></param>
+            <returns>If all bytes are zero, buffer is empty or buffer is null, true is returned, false otherwise.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeCompareExtensions.IsBufferZero(System.Span{System.Byte})">
+            <summary>
+            Determines whether all bytes in a buffer are zero. If ntdll.RtlIsZeroMemory is available it is used,
+            otherwise it falls back to a native method that compares groups of bytes is an optimized way.
+            </summary>
+            <param name="buffer"></param>
+            <returns>If all bytes are zero, buffer is empty, true is returned, false otherwise.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeCompareExtensions.IsBufferZero(System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Determines whether all bytes in a buffer are zero. If ntdll.RtlIsZeroMemory is available it is used,
+            otherwise it falls back to a managed method that compares groups of bytes is an optimized way.
+            </summary>
+            <param name="buffer"></param>
+            <returns>If all bytes are zero, buffer is empty, true is returned, false otherwise.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeCompareExtensions.BinaryCompare``1(``0@,``0@)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeCompareExtensions.BinaryEqual``1(``0@,``0@)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:LTRData.Extensions.Native.NativeLib">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeLib.Win32Try``1(``0)">
+            <summary>
+            Encapsulates call to a Win32 API function that returns a value where failure
+            is indicated as a NULL return and GetLastError() returns an error code. If
+            non-zero value is passed to this method it just returns that value. If zero
+            value is passed, it calls GetLastError() and throws a managed exception for
+            that error code.
+            </summary>
+            <param name="result">Return code from a Win32 API function call.</param>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeLib.CrtDllImportResolver(System.String,System.Reflection.Assembly,System.Nullable{System.Runtime.InteropServices.DllImportSearchPath})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeLib.GetProcAddress``1(System.IntPtr,System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeLib.GetProcAddressNoThrow``1(System.IntPtr,System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeLib.GetProcAddress``1(System.String,System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeLib.GetProcAddressNoThrow(System.String,System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Native.NativeLib.GetProcAddressNoThrow``1(System.String,System.String)">
+            <summary>
+            </summary>
+        </member>
+    </members>
+</doc>

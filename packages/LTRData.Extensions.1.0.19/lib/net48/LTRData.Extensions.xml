@@ -1,0 +1,1835 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LTRData.Extensions</name>
+    </assembly>
+    <members>
+        <member name="T:LTRData.Extensions.Async.AsyncCompatExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Async.AsyncCompatExtensions.ZeroCompletedTask">
+            <summary>
+            A task that has completed with the integer result of 0.
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Async.AsyncCompatExtensions.FalseResult">
+            <summary>
+            A task that has completed with the boolean result of false.
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Async.AsyncCompatExtensions.TrueResult">
+            <summary>
+            A task that has completed with the boolean result of true.
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.DefaultCompletedTask``1">
+            <summary>
+            A task that has completed with the default value of type <typeparamref name="T"/>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.EmptyArrayCompletedTask``1">
+            <summary>
+            A task that has completed with an empty array of type <typeparamref name="T"/>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.EmptyEnumerationCompletedTask``1">
+            <summary>
+            A task that has completed with an empty enumeration of type <typeparamref name="T"/>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.WaitAsync(System.Threading.Tasks.Task,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="task"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.WaitAsync(System.Threading.Tasks.Task,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="task"></param>
+            <param name="timeout"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.WaitAsync``1(System.Threading.Tasks.Task{``0},System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="task"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.WaitAsync``1(System.Threading.Tasks.Task{``0},System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="task"></param>
+            <param name="timeout"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.Wait(System.Threading.Tasks.ValueTask@)">
+            <summary>
+            Waits for a ValueTask to complete, or re-throws exception if the ValueTask fails. If the ValueTask
+            has already completed successfully when this method is called, it returns immediately without any further
+            allocations. Otherwise as Task object is created for waiting and for re-throwing any exceptions etc.
+            </summary>
+            <param name="task">ValueTask</param>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.Wait``1(System.Threading.Tasks.ValueTask{``0}@)">
+            <summary>
+            Waits for a ValueTask to complete, or re-throws exception if the ValueTask fails. If the ValueTask
+            has already completed successfully when this method is called, the result is returned immediately without
+            any further allocations. Otherwise as Task object is created for waiting for results, exceptions etc.
+            </summary>
+            <param name="task">ValueTask</param>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.WaitForResult``1(System.Threading.Tasks.ValueTask{``0}@)">
+            <summary>
+            Waits for a ValueTask to complete, or re-throws exception if the ValueTask fails. If the ValueTask
+            has already completed successfully when this method is called, the result is returned immediately without
+            any further allocations. Otherwise as Task object is created for waiting for results, exceptions etc.
+            </summary>
+            <param name="task">ValueTask</param>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.AsValueTask(System.Threading.Tasks.Task)">
+            <summary>
+            Returns a ValueTask encapsulating a Task.
+            </summary>
+            <param name="task">Task object to encapsulate, or null.</param>
+            <returns>ValueTask respresenting the supplied Task, or a default completed
+            ValueTask if task object was null.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.AsValueTask``1(System.Threading.Tasks.Task{``0})">
+            <summary>
+            Returns a ValueTask encapsulating a Task.
+            </summary>
+            <param name="task">Task object to encapsulate, or null.</param>
+            <returns>ValueTask respresenting the supplied Task, or a default completed
+            ValueTask if task object was null.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.AsTaskBool(System.Threading.Tasks.ValueTask{System.Boolean}@)">
+            <summary>
+            Like AsTask() for <see cref="T:System.Threading.Tasks.ValueTask`1"/>, but use cached <see cref="T:System.Threading.Tasks.Task`1"/> for true and false values
+            if the task has already completed successfully.
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.AsAsyncResult``1(System.Threading.Tasks.Task{``0},System.AsyncCallback,System.Object)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.AsAsyncResult(System.Threading.Tasks.Task,System.AsyncCallback,System.Object)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.GetAwaiter``1(System.IObservable{``0})">
+            <summary>
+            Async/await extension for <see cref="T:System.IObservable`1"/> objects.
+            </summary>
+            <typeparam name="T">Type of result of asynchronous operation</typeparam>
+            <param name="observable">Observable operation to await</param>
+            <returns>An object used by async/await pattern</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Async.AsyncCompatExtensions.CancelAsync(System.Threading.CancellationTokenSource)">
+            <summary>
+            </summary>
+            <param name="cancellationTokenSource"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LTRData.Extensions.Async.ObserverSingleResultAwaiter`1">
+            <summary>
+            Async/await extension for <see cref="T:System.IObservable`1"/> objects.
+            </summary>
+            <typeparam name="T">Type of result of asynchronous operation</typeparam>
+        </member>
+        <member name="M:LTRData.Extensions.Async.ObserverSingleResultAwaiter`1.#ctor(System.IObservable{`0})">
+            <summary>
+            Creates a new instance by subscribing to an <see cref="T:System.IObservable`1"/>
+            </summary>
+            <param name="observable">Asynchronous operation that will be awaited by this instance</param>
+        </member>
+        <member name="P:LTRData.Extensions.Async.ObserverSingleResultAwaiter`1.IsCompleted">
+            <summary>
+            Gets current state of asynchronous operation.
+            </summary>
+            <returns>State of asynchronous operation</returns>
+        </member>
+        <member name="P:LTRData.Extensions.Async.ObserverSingleResultAwaiter`1.IsCompletedSuccessfully">
+            <summary>
+            Gets current state of asynchronous operation.
+            </summary>
+            <returns>State of asynchronous operation</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Async.ObserverSingleResultAwaiter`1.GetResult">
+            <summary>
+            Gets result of asynchronous operation.
+            </summary>
+            <returns>Result of asynchronous operation</returns>
+        </member>
+        <member name="T:LTRData.Extensions.Buffers.BufferExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.SetBit(System.Collections.Generic.IList{System.Byte},System.Int32)">
+            <summary>
+            Sets a bit to 1 in a bit field.
+            </summary>
+            <param name="data">Bit field</param>
+            <param name="bitnumber">Bit number to set to 1</param>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.SetBit(System.Collections.Generic.IList{System.Byte},System.Int64)">
+            <summary>
+            Sets a bit to 1 in a bit field.
+            </summary>
+            <param name="data">Bit field</param>
+            <param name="bitnumber">Bit number to set to 1</param>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ClearBit(System.Collections.Generic.IList{System.Byte},System.Int32)">
+            <summary>
+            Sets a bit to 0 in a bit field.
+            </summary>
+            <param name="data">Bit field</param>
+            <param name="bitnumber">Bit number to set to 0</param>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ClearBit(System.Collections.Generic.IList{System.Byte},System.Int64)">
+            <summary>
+            Sets a bit to 0 in a bit field.
+            </summary>
+            <param name="data">Bit field</param>
+            <param name="bitnumber">Bit number to set to 0</param>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.GetBit(System.Collections.Generic.IReadOnlyList{System.Byte},System.Int32)">
+            <summary>
+            Gets a bit from a bit field.
+            </summary>
+            <param name="data">Bit field</param>
+            <param name="bitnumber">Bit number to get</param>
+            <returns>True if value of specified bit is 1, false if 0.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.GetBit(System.Collections.Generic.IReadOnlyList{System.Byte},System.Int64)">
+            <summary>
+            Gets a bit from a bit field.
+            </summary>
+            <param name="data">Bit field</param>
+            <param name="bitnumber">Bit number to get</param>
+            <returns>True if value of specified bit is 1, false if 0.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.AsReadOnly``2(System.Collections.Generic.IDictionary{``0,``1})">
+            <summary>
+            Returns a read-only wrapper for a dictionary
+            </summary>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <param name="dictionary"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ToEnumerable``1(System.Memory{``0})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ToEnumerable``1(System.ReadOnlyMemory{``0})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.AsChars(System.Byte[])">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.AsChars(System.Memory{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.AsChars(System.ReadOnlyMemory{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.AsChars(System.Span{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.AsChars(System.ReadOnlySpan{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.AsSpan(System.Runtime.InteropServices.SafeBuffer)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.AsSpan(System.IO.MemoryStream)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.AsSpan(System.IO.UnmanagedMemoryStream)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.AsMemory(System.IO.MemoryStream)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.CastRef``1(System.ReadOnlySpan{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.CastRef``1(System.Span{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.SetBit(System.Span{System.Byte},System.Int32)">
+            <summary>
+            Sets a bit to 1 in a bit field.
+            </summary>
+            <param name="data">Bit field</param>
+            <param name="bitnumber">Bit number to set to 1</param>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ClearBit(System.Span{System.Byte},System.Int32)">
+            <summary>
+            Sets a bit to 0 in a bit field.
+            </summary>
+            <param name="data">Bit field</param>
+            <param name="bitnumber">Bit number to set to 0</param>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.GetBit(System.Span{System.Byte},System.Int32)">
+            <summary>
+            Gets a bit from a bit field.
+            </summary>
+            <param name="data">Bit field</param>
+            <param name="bitnumber">Bit number to get</param>
+            <returns>True if value of specified bit is 1, false if 0.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.GetBit(System.ReadOnlySpan{System.Byte},System.Int32)">
+            <summary>
+            Gets a bit from a bit field.
+            </summary>
+            <param name="data">Bit field</param>
+            <param name="bitnumber">Bit number to get</param>
+            <returns>True if value of specified bit is 1, false if 0.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.AsReadOnlyBytes``1(``0@)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.CreateReadOnlySpan``1(``0@,System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.CreateSpan``1(``0@,System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.GetHashCode(System.ReadOnlySpan{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.TrimStart(System.ReadOnlyMemory{System.Char})">
+            <summary>
+            Returns character memory block beyond whitespace characters
+            </summary>
+            <param name="str">Character memory block</param>
+            <returns>Character memory block beyond whitespace characters</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.TrimEnd(System.ReadOnlyMemory{System.Char})">
+            <summary>
+            Returns character memory block before whitespace characters
+            </summary>
+            <param name="str">Character memory block</param>
+            <returns>Character memory block before whitespace characters</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Trim(System.ReadOnlyMemory{System.Char})">
+            <summary>
+            Returns character memory block beyond and before whitespace characters
+            </summary>
+            <param name="str">Character memory block</param>
+            <returns>Character memory block beyond and before whitespace characters</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.TrimStart(System.ReadOnlyMemory{System.Char},System.Char)">
+            <summary>
+            Returns character memory block beyond given trim character
+            </summary>
+            <param name="str">Character memory block</param>
+            <param name="chr">Character to trim</param>
+            <returns>Character memory block beyond given trim character</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.TrimEnd(System.ReadOnlyMemory{System.Char},System.Char)">
+            <summary>
+            Returns character memory block before given trim character
+            </summary>
+            <param name="str">Character memory block</param>
+            <param name="chr">Character to trim</param>
+            <returns>Character memory block before given trim string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Trim(System.ReadOnlyMemory{System.Char},System.Char)">
+            <summary>
+            Returns character memory block beyond and before given trim character
+            </summary>
+            <param name="str">Character memory block</param>
+            <param name="chr">Character to trim</param>
+            <returns>Character memory block beyond given trim character</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.TrimStart(System.ReadOnlyMemory{System.Char},System.ReadOnlySpan{System.Char})">
+            <summary>
+            Returns character memory block beyond given trim haracter
+            </summary>
+            <param name="str">Character memory block</param>
+            <param name="chrs">String to trim</param>
+            <returns>Character memory block beyond given trim string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.TrimEnd(System.ReadOnlyMemory{System.Char},System.ReadOnlySpan{System.Char})">
+            <summary>
+            Returns character memory block before given trim string
+            </summary>
+            <param name="str">Character memory block</param>
+            <param name="chrs">String to trim</param>
+            <returns>Character memory block before given trim string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Trim(System.ReadOnlyMemory{System.Char},System.ReadOnlySpan{System.Char})">
+            <summary>
+            Returns character memory block beyond and before given trim string
+            </summary>
+            <param name="str">Character memory block</param>
+            <param name="chrs">String to trim</param>
+            <returns>Character memory block beyond and before given trim string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Append(System.Text.StringBuilder,System.ReadOnlyMemory{System.Char})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.TrimStartAny(System.ReadOnlyMemory{System.Char},System.Char[])">
+            <summary>
+            Returns character memory block beyond given trim characters
+            </summary>
+            <param name="str">Character memory block</param>
+            <param name="chrs">Characters to trim</param>
+            <returns>Character memory block beyond given trim characters</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.TrimEndAny(System.ReadOnlyMemory{System.Char},System.Char[])">
+            <summary>
+            Returns character memory block before given trim characters
+            </summary>
+            <param name="str">Character memory block</param>
+            <param name="chrs">Characters to trim</param>
+            <returns>Character memory block before given trim characters</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Trim(System.ReadOnlyMemory{System.Char},System.Char[])">
+            <summary>
+            Returns character memory block beyond and before given trim characters
+            </summary>
+            <param name="str">Character memory block</param>
+            <param name="chrs">Characters to trim</param>
+            <returns>Character memory block beyond and before given trim characters</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.TrimStartAny(System.ReadOnlySpan{System.Char},System.Char[])">
+            <summary>
+            Returns character memory block beyond given trim characters
+            </summary>
+            <param name="str">Character memory block</param>
+            <param name="chrs">Characters to trim</param>
+            <returns>Character memory block beyond given trim characters</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.TrimEndAny(System.ReadOnlySpan{System.Char},System.Char[])">
+            <summary>
+            Returns character memory block before given trim characters
+            </summary>
+            <param name="str">Character memory block</param>
+            <param name="chrs">Characters to trim</param>
+            <returns>Character memory block before given trim characters</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.AsRef``1(System.ReadOnlySpan{``0})">
+            <summary>
+            Return a managed reference to Span, or a managed null reference
+            if Span is empty.
+            </summary>
+            <param name="span">Span to return reference for or null</param>
+            <returns>Managed reference</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.AsRef``1(System.Span{``0})">
+            <summary>
+            Return a managed reference to Span, or a managed null reference
+            if Span is empty.
+            </summary>
+            <param name="span">Span to return reference for or null</param>
+            <returns>Managed reference</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.AsRef(System.String)">
+            <summary>
+            Return a managed reference to string, or a managed null reference
+            if given a null reference.
+            </summary>
+            <param name="str">String to return reference for or null</param>
+            <returns>Managed reference</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.MakeNullTerminated(System.ReadOnlyMemory{System.Char})">
+            <summary>
+            Returns a reference to a character string guaranteed to be null
+            terminated. If the supplied buffer is null terminated, a reference
+            to the first character in buffer is returned. Otherwise, a new char
+            array is created, data copied to it, and a reference to the first
+            character in the new array is returned.
+            </summary>
+            <param name="strMemory">Input string</param>
+            <returns>Reference to output string with characters equal to
+            input string, but guaranteed to be null terminated.</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.GetItem``1(System.ReadOnlySpan{``0},System.Int32)">
+            <summary>
+            Workaround for Visual Basic Span consumers
+            </summary>
+            <typeparam name="T">Type of elements of span</typeparam>
+            <param name="span">span</param>
+            <param name="index">index of element in span to return</param>
+            <returns>Copy of element at position</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.GetItem``1(System.Span{``0},System.Int32)">
+            <summary>
+            Workaround for Visual Basic Span consumers
+            </summary>
+            <typeparam name="T">Type of elements of span</typeparam>
+            <param name="span">span</param>
+            <param name="index">index of element in span to return</param>
+            <returns>Copy of element at position</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.SetItem``1(System.Memory{``0},System.Int32,``0@)">
+            <summary>
+            Workaround for Visual Basic Span consumers
+            </summary>
+            <typeparam name="T">Type of elements of span</typeparam>
+            <param name="memory">span</param>
+            <param name="index">index of element in span to set</param>
+            <param name="item">reference to item to assign to index in span</param>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.SetItem``1(System.Span{``0},System.Int32,``0@)">
+            <summary>
+            Workaround for Visual Basic Span consumers
+            </summary>
+            <typeparam name="T">Type of elements of span</typeparam>
+            <param name="span">span</param>
+            <param name="index">index of element in span to set</param>
+            <param name="item">reference to item to assign to index in span</param>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.GetItem``1(System.ReadOnlyMemory{``0},System.Int32)">
+            <summary>
+            Workaround for Visual Basic Span consumers
+            </summary>
+            <typeparam name="T">Type of elements of span</typeparam>
+            <param name="memory">span</param>
+            <param name="index">index of element in span to return</param>
+            <returns>Copy of element at position</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.GetItem``1(System.Memory{``0},System.Int32)">
+            <summary>
+            Workaround for Visual Basic Span consumers
+            </summary>
+            <typeparam name="T">Type of elements of span</typeparam>
+            <param name="memory">span</param>
+            <param name="index">index of element in span to return</param>
+            <returns>Copy of element at position</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ParseDoubleTerminatedString(System.Memory{System.Byte})">
+            <summary>
+            Parses a multi-string where each string is terminated by null char
+            and the whole buffer is terminated by double null chars.
+            </summary>
+            <param name="bytes">Memory that contains the double null terminated string</param>
+            <returns>Each individual string in the buffer</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ParseDoubleTerminatedString(System.ReadOnlyMemory{System.Byte})">
+            <summary>
+            Parses a multi-string where each string is terminated by null char
+            and the whole buffer is terminated by double null chars.
+            </summary>
+            <param name="bytes">Memory that contains the double null terminated string</param>
+            <returns>Each individual string in the buffer</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ParseDoubleTerminatedString(System.Memory{System.Char})">
+            <summary>
+            Parses a multi-string where each string is terminated by null char
+            and the whole buffer is terminated by double null chars.
+            </summary>
+            <param name="chars">Memory that contains the double null terminated string</param>
+            <returns>Each individual string in the buffer</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ParseDoubleTerminatedString(System.ReadOnlyMemory{System.Char})">
+            <summary>
+            Parses a multi-string where each string is terminated by null char
+            and the whole buffer is terminated by double null chars.
+            </summary>
+            <param name="chars">Memory that contains the double null terminated string</param>
+            <returns>Each individual string in the buffer</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Contains(System.ReadOnlySpan{System.Char},System.Char)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Split(System.String,System.Char,System.Int32,System.StringSplitOptions)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Split(System.String,System.Char,System.StringSplitOptions)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Split(System.String,System.String,System.Int32,System.StringSplitOptions)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Split(System.String,System.String,System.StringSplitOptions)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Contains(System.String,System.Char)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Contains(System.String,System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Contains(System.String,System.String,System.StringComparison)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.StartsWith(System.String,System.Char)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.EndsWith(System.String,System.Char)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.IndexOfTerminator``1(System.ReadOnlySpan{``0})">
+            <summary>
+            Return position of first empty element, or the entire span length if
+            no empty elements are found.
+            </summary>
+            <param name="buffer">Span to search</param>
+            <returns>Position of first found empty element or entire span length if none found</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.IndexOfTerminator``1(System.Span{``0})">
+            <summary>
+            Return position of first empty element, or the entire span length if
+            no empty elements are found.
+            </summary>
+            <param name="buffer">Span to search</param>
+            <returns>Position of first found empty element or entire span length if none found</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedMultiByteString(System.Byte[],System.Int32,System.Text.Encoding)">
+            <summary>
+            Reads null terminated string from byte buffer using a single- or multi-byte encoding
+            that terminates strings with a single null byte.
+            </summary>
+            <param name="buffer">Byte buffer</param>
+            <param name="offset">Offset in byte buffer where the string starts</param>
+            <param name="encoding">Single- or multi-byte encoding
+            that terminates strings with a single null byte</param>
+            <returns>Managed string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedAsciiString(System.Byte[],System.Int32)">
+            <summary>
+            Reads null terminated ASCII string from byte buffer.
+            </summary>
+            <param name="buffer">Byte buffer</param>
+            <param name="offset">Offset in byte buffer where the string starts</param>
+            <returns>Managed string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedUnicode(System.Byte[],System.Int32)">
+            <summary>
+            Reads null terminated Unicode string from byte buffer.
+            </summary>
+            <param name="buffer">Byte buffer</param>
+            <param name="offset">Offset in byte buffer where the string starts</param>
+            <returns>Managed string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedUnicode(System.Span{System.Byte})">
+            <summary>
+            Reads null terminated Unicode string from byte buffer.
+            </summary>
+            <param name="buffer">Byte buffer</param>
+            <returns>Managed string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedUnicode(System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Reads null terminated Unicode string from byte buffer.
+            </summary>
+            <param name="buffer">Byte buffer</param>
+            <returns>Managed string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedUnicode(System.ReadOnlySpan{System.Char})">
+            <summary>
+            Reads null terminated Unicode string from char buffer.
+            </summary>
+            <param name="chars">Buffer</param>
+            <returns>Managed string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedUnicode(System.Span{System.Char})">
+            <summary>
+            Reads null terminated Unicode string from char buffer.
+            </summary>
+            <param name="chars">Buffer</param>
+            <returns>Managed string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedUnicodeString(System.Byte[],System.Int32)">
+            <summary>
+            Reads null terminated Unicode string from byte buffer.
+            </summary>
+            <param name="buffer">Byte buffer</param>
+            <param name="offset">Offset in byte buffer where the string starts</param>
+            <returns>Managed string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedUnicodeString(System.Span{System.Byte})">
+            <summary>
+            Reads null terminated Unicode string from byte buffer.
+            </summary>
+            <param name="buffer">Byte buffer</param>
+            <returns>Managed string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedUnicodeString(System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Reads null terminated Unicode string from byte buffer.
+            </summary>
+            <param name="buffer">Byte buffer</param>
+            <returns>Managed string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedUnicodeString(System.ReadOnlySpan{System.Char})">
+            <summary>
+            Reads null terminated Unicode string from char buffer.
+            </summary>
+            <param name="chars">Buffer</param>
+            <returns>Managed string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedUnicodeString(System.Span{System.Char})">
+            <summary>
+            Reads null terminated Unicode string from char buffer.
+            </summary>
+            <param name="chars">Buffer</param>
+            <returns>Managed string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedUnicodeString(System.ReadOnlyMemory{System.Char})">
+            <summary>
+            Reads null terminated Unicode string from char buffer.
+            </summary>
+            <param name="chars">Buffer</param>
+            <returns>Memory region up to null terminator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedUnicodeString(System.Memory{System.Char})">
+            <summary>
+            Reads null terminated Unicode string from char buffer.
+            </summary>
+            <param name="chars">Buffer</param>
+            <returns>Memory region up to null terminator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.InitialCapital(System.ReadOnlyMemory{System.Char},System.Int32)">
+            <summary>
+            Converts first character of each word to uppercase
+            </summary>
+            <param name="str">Source sring</param>
+            <param name="minWordLength">Minimum length of words to apply uppercase initial</param>
+            <returns>Converted string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedAsciiString(System.ReadOnlySpan{System.Byte})">
+            <summary>
+            Reads null terminated ASCII string from byte buffer.
+            </summary>
+            <param name="buffer">Byte buffer</param>
+            <returns>Managed string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedAsciiString(System.Span{System.Byte})">
+            <summary>
+            Reads null terminated ASCII string from byte buffer.
+            </summary>
+            <param name="buffer">Byte buffer</param>
+            <returns>Managed string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadNullTerminatedMultiByteString(System.ReadOnlySpan{System.Byte},System.Text.Encoding)">
+            <summary>
+            Reads null terminated string from byte buffer using a single- or multi-byte encoding
+            that terminates strings with a single null byte.
+            </summary>
+            <param name="buffer">Byte buffer</param>
+            <param name="encoding">Single- or multi-byte encoding
+            that terminates strings with a single null byte</param>
+            <returns>Managed string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.MaxBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>Returns the maximum value in a generic sequence according to a specified key selector function.</summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="source" />.</typeparam>
+            <typeparam name="TKey">The type of key to compare elements by.</typeparam>
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="keySelector">A function to extract the key for each element.</param>
+            <returns>The value with the maximum key in the sequence.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="source" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentException">No key extracted from <paramref name="source" /> implements the <see cref="T:System.IComparable" /> or <see cref="T:System.IComparable`1" /> interface.</exception>
+            <remarks>
+            <para>If <typeparamref name="TKey" /> is a reference type and the source sequence is empty or contains only values that are <see langword="null" />, this method returns <see langword="null" />.</para>
+            </remarks>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.MaxBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+            <summary>Returns the maximum value in a generic sequence according to a specified key selector function.</summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="source" />.</typeparam>
+            <typeparam name="TKey">The type of key to compare elements by.</typeparam>
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="keySelector">A function to extract the key for each element.</param>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IComparer`1" /> to compare keys.</param>
+            <returns>The value with the maximum key in the sequence.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="source" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentException">No key extracted from <paramref name="source" /> implements the <see cref="T:System.IComparable" /> or <see cref="T:System.IComparable`1" /> interface.</exception>
+            <remarks>
+            <para>If <typeparamref name="TKey" /> is a reference type and the source sequence is empty or contains only values that are <see langword="null" />, this method returns <see langword="null" />.</para>
+            </remarks>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.MinBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.MinBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+            <summary>Returns the maximum value in a generic sequence according to a specified key selector function.</summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="source" />.</typeparam>
+            <typeparam name="TKey">The type of key to compare elements by.</typeparam>
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="keySelector">A function to extract the key for each element.</param>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IComparer`1" /> to compare keys.</param>
+            <returns>The value with the maximum key in the sequence.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="source" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentException">No key extracted from <paramref name="source" /> implements the <see cref="T:System.IComparable" /> or <see cref="T:System.IComparable`1" /> interface.</exception>
+            <remarks>
+            <para>If <typeparamref name="TKey" /> is a reference type and the source sequence is empty or contains only values that are <see langword="null" />, this method returns <see langword="null" />.</para>
+            </remarks>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.GetSequenceHash``1(System.ReadOnlySpan{``0})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.GetSequenceHash``1(System.Span{``0})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.GetSequenceHash``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.RentArray``1(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReturnArray``1(``0[])">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Append(System.Text.StringBuilder,System.ReadOnlySpan{System.Char})">
+            <summary>
+            </summary>
+            <param name="sb"></param>
+            <param name="span"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReadSpan``1(System.Runtime.InteropServices.SafeBuffer,System.UInt64,System.Span{``0})">
+            <summary>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="safeBuffer"></param>
+            <param name="byteOffset"></param>
+            <param name="buffer"></param>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.WriteSpan``1(System.Runtime.InteropServices.SafeBuffer,System.UInt64,System.ReadOnlySpan{``0})">
+            <summary>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="safeBuffer"></param>
+            <param name="byteOffset"></param>
+            <param name="buffer"></param>
+        </member>
+        <member name="T:LTRData.Extensions.Buffers.SingleValueEnumerable">
+            <summary>
+            Provides allocation-free enumerables for a single item
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.SingleValueEnumerable.Get``1(``0)">
+            <summary>
+            Returns an allocation-free enumerable for a single item
+            </summary>
+            <param name="value">Item to enumerate once</param>
+            <returns>Enumerable that will enumerate supplied item once</returns>
+        </member>
+        <member name="T:LTRData.Extensions.Buffers.SingleValueEnumerable`1">
+            <summary>
+            An allocation-free enumerable for a single item
+            </summary>
+            <typeparam name="T">Type of item</typeparam>
+        </member>
+        <member name="P:LTRData.Extensions.Buffers.SingleValueEnumerable`1.Value">
+            <summary>
+            Value to enumerate once
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.SingleValueEnumerable`1.#ctor(`0)">
+            <summary>
+            Initializes a new enumerable with an item
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.SingleValueEnumerable`1.GetEnumerator">
+            <summary>
+            Returns enumerator for this enumerable
+            </summary>
+            <returns>Enumerator for this enumerable</returns>
+        </member>
+        <member name="T:LTRData.Extensions.Buffers.SingleValueEnumerable`1.SingleValueEnumerator">
+            <summary>
+            An allocation-free enumerator for a single item
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.SingleValueEnumerable`1.SingleValueEnumerator.#ctor(`0)">
+            <summary>
+            Initializes a new enumerator with an item
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="P:LTRData.Extensions.Buffers.SingleValueEnumerable`1.SingleValueEnumerator.Value">
+            <summary>
+            Value to enumerate once
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Buffers.SingleValueEnumerable`1.SingleValueEnumerator.Started">
+            <summary>
+            Indicates whether enumeration has started
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Buffers.SingleValueEnumerable`1.SingleValueEnumerator.Current">
+            <summary>
+            Current value in enumeration
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.SingleValueEnumerable`1.SingleValueEnumerator.MoveNext">
+            <summary>
+            Moves to next value in enumeration
+            </summary>
+            <returns>True if a new item is available from enumeration, false if end has been reached</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.SingleValueEnumerable`1.SingleValueEnumerator.Reset">
+            <summary>
+            Restarts enumeration from beginning
+            </summary>
+        </member>
+        <member name="T:LTRData.Extensions.CommandLine.CommandLineParser">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.CommandLine.CommandLineParser.ParseCommandLine(System.Collections.Generic.IEnumerable{System.String},System.StringComparer)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.CommandLine.CommandLineParser.ParseCommandLineParameter(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:LTRData.Extensions.Conversion.DateTimeConversion">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Conversion.DateTimeConversion.TryFileTimeToDateTime(System.Int64)">
+            <summary>
+            Attempts to convert FILETIME value to DateTime value
+            </summary>
+            <param name="fileTime">FILETIME value to convert</param>
+            <returns>Converted DateTime value if conversion was successful, null otherwise</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Conversion.DateTimeConversion.TryFileTimeToDateTimeUtc(System.Int64)">
+            <summary>
+            Attempts to convert FILETIME value to DateTime value
+            </summary>
+            <param name="fileTime">FILETIME value to convert</param>
+            <returns>Converted DateTime value if conversion was successful, null otherwise</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Conversion.DateTimeConversion.TryFileTimeToDateTimeOffset(System.Int64)">
+            <summary>
+            Attempts to convert FILETIME value to DateTimeOffset value
+            </summary>
+            <param name="fileTime">FILETIME value to convert</param>
+            <returns>Converted DateTimeOffset value if conversion was successful, null otherwise</returns>
+        </member>
+        <member name="T:LTRData.Extensions.Formatting.ExceptionExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.ExceptionExtensions.Enumerate(System.Exception)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.ExceptionExtensions.EnumerateMessages(System.Exception)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.ExceptionExtensions.JoinMessages(System.Exception)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.ExceptionExtensions.JoinMessages(System.Exception,System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:LTRData.Extensions.Formatting.HexExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Char})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ParseHexString(System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ParseHexString(System.ReadOnlySpan{System.Char})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ParseHexString(System.Collections.Generic.IEnumerable{System.Char})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ParseHexString(System.String,System.Int32,System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.TryParseHexString(System.String,System.Byte[],System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.TryParseHexString(System.ReadOnlySpan{System.Char},System.Span{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.TryParseHexString(System.String,System.Int32,System.Int32,System.Byte[],System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.TryFormatHexString(System.Byte[],System.ReadOnlySpan{System.Char},System.Span{System.Char},System.Boolean)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.TryFormatHexString(System.Span{System.Byte},System.ReadOnlySpan{System.Char},System.Span{System.Char},System.Boolean)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.TryFormatHexString(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Char},System.Span{System.Char},System.Boolean)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.Byte[])">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.Byte[],System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.Byte[],System.Int32,System.Int32,System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.Span{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.Span{System.Byte},System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.ReadOnlySpan{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.WriteHex(System.IO.TextWriter,System.Collections.Generic.IEnumerable{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.FormatHexLines(System.Collections.Generic.IEnumerable{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString``1(``0@)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.Collections.Generic.IReadOnlyCollection{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.Collections.Generic.IReadOnlyCollection{System.Byte},System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.Collections.Generic.IEnumerable{System.Byte})">
+            <summary>
+            Returns a string with each byte expressed in two-character hexadecimal notation.
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.Collections.Generic.IEnumerable{System.Byte},System.String)">
+            <summary>
+            Returns a string with each byte expressed in two-character hexadecimal notation.
+            </summary>
+        </member>
+        <member name="T:LTRData.Extensions.Formatting.SizeFormatting">
+            <summary>
+            Methods for formatting byte sizes with MB, GB etc suffixes
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.SizeFormatting.FormatBytes(System.UInt64)">
+            <summary>
+            Formats byte sizes with MB, GB etc suffixes
+            </summary>
+            <param name="size">Number of bytes</param>
+            <returns>Number of bytes formatted as string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.SizeFormatting.FormatBytes(System.UInt64,System.Int32)">
+            <summary>
+            Formats byte sizes with MB, GB etc suffixes
+            </summary>
+            <param name="size">Number of bytes</param>
+            <param name="precision">Number of decimals in formatted string</param>
+            <returns>Number of bytes formatted as string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.SizeFormatting.FormatBytes(System.Int64,System.Int32)">
+            <summary>
+            Formats byte sizes with MB, GB etc suffixes
+            </summary>
+            <param name="size">Number of bytes</param>
+            <param name="precision">Number of decimals in formatted string</param>
+            <returns>Number of bytes formatted as string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.SizeFormatting.FormatBytes(System.Int64)">
+            <summary>
+            Formats byte sizes with MB, GB etc suffixes
+            </summary>
+            <param name="size">Number of bytes</param>
+            <returns>Number of bytes formatted as string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.SizeFormatting.ParseSuffixedSize(System.String)">
+            <summary>
+            Attempts to parse a suffixed byte size, for example 1M as a numeric value.
+            </summary>
+            <param name="formatted">Suffixed size to convert</param>
+            <returns>Number of bytes if sring was successfully parsed, null otherwise</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.SizeFormatting.TryParseSuffixedSize(System.String,System.Int64@)">
+            <summary>
+            Attempts to parse a suffixed byte size, for example 1M as a numeric value.
+            </summary>
+            <param name="formatted">Suffixed size to convert</param>
+            <param name="parseSuffixedSizeRet">Number of bytes if sring was successfully parsed</param>
+            <returns>True if sring was successfully parsed, false otherwise</returns>
+        </member>
+        <member name="T:LTRData.Extensions.Formatting.StringFormatting">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.InitialCapital(System.String,System.Globalization.CultureInfo,System.Int32)">
+            <summary>
+            Capitalize first character in each word.
+            </summary>
+            <param name="str">String with words</param>
+            <param name="CultureInfo"></param>
+            <param name="MinWordLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.InitialCapitalInvariant(System.String,System.Int32)">
+            <summary>
+            Capitalize first character in each word.
+            </summary>
+            <param name="str">String with words</param>
+            <param name="MinWordLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.InitialCapital(System.String,System.Int32)">
+            <summary>
+            Capitalize first character in each word.
+            </summary>
+            <param name="str">String with words</param>
+            <param name="MinWordLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.InitialCapitalInvariantJoin(System.Collections.Generic.IEnumerable{System.String},System.Int32)">
+            <summary>
+            Capitalize first character in each word and joins result as space-delimited string.
+            </summary>
+            <param name="words">String with words</param>
+            <param name="MinWordLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.InitialCapitalJoin(System.Collections.Generic.IEnumerable{System.String},System.Int32)">
+            <summary>
+            Capitalize first character in each word and joins result as space-delimited string.
+            </summary>
+            <param name="words">String with words</param>
+            <param name="MinWordLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.GetBytes(System.Text.Encoding,System.String,System.Int32,System.Int32)">
+            <summary>
+            </summary>
+            <param name="encoding"></param>
+            <param name="s"></param>
+            <param name="index"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.Join(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Encapsulation of <see cref="M:System.String.Join(System.String,System.Collections.Generic.IEnumerable{System.String})"/> as an extension method
+            </summary>
+            <param name="strings">String to join</param>
+            <param name="separator">Separator to insert between each joined element</param>
+            <returns>Joined string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.Join(System.String[],System.String)">
+            <summary>
+            Encapsulation of <see cref="M:System.String.Join(System.String,System.String[])"/> as an extension method
+            </summary>
+            <param name="strings">String to join</param>
+            <param name="separator">Separator to insert between each joined element</param>
+            <returns>Joined string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.Join(System.Collections.Generic.IEnumerable{System.String},System.Char)">
+            <summary>
+            Encapsulation of <see cref="M:System.String.Join``1(System.String,System.Collections.Generic.IEnumerable{``0})"/> as an extension method
+            </summary>
+            <param name="strings">String to join</param>
+            <param name="separator">Separator to insert between each joined element</param>
+            <returns>Joined string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.Join(System.String[],System.Char)">
+            <summary>
+            Encapsulation of <see cref="M:System.String.Join(System.String,System.String[])"/> as an extension method
+            </summary>
+            <param name="strings">String to join</param>
+            <param name="separator">Separator to insert between each joined element</param>
+            <returns>Joined string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.Concat(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Encapsulation of <see cref="M:System.String.Concat(System.String[])"/> as an extension method
+            </summary>
+            <param name="strings">String to join</param>
+            <returns>Joined string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.Concat(System.String[])">
+            <summary>
+            Encapsulation of <see cref="M:System.String.Concat(System.String[])"/> as an extension method
+            </summary>
+            <param name="strings">String to join</param>
+            <returns>Joined string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.LineFormat(System.ReadOnlySpan{System.Char},System.Int32,System.Nullable{System.Int32},System.Char,System.Char)">
+            <summary>
+            Adjusts a string to a display with specified width by wrapping complete words.
+            </summary>
+            <param name="msg"></param>
+            <param name="indentWidth"></param>
+            <param name="lineWidth">Display width. If omitted, defaults to console window width.</param>
+            <param name="wordDelimiter">Word separator character.</param>
+            <param name="fillChar"></param>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.Center(System.String,System.Int32,System.Char)">
+            <summary>
+            </summary>
+            <param name="msg"></param>
+            <param name="width"></param>
+            <param name="fillChar"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.Center(System.String,System.Int32)">
+            <summary>
+            </summary>
+            <param name="msg"></param>
+            <param name="width"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.LeftAdjust(System.String,System.Int32,System.Char)">
+            <summary>
+            Left adjusts a string by truncating or padding to ensure that the resulting string is
+            exactly the specified length
+            </summary>
+            <param name="msg"></param>
+            <param name="width"></param>
+            <param name="fillChar"></param>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.LeftAdjust(System.String,System.Int32)">
+            <summary>
+            Left adjusts a string by truncating or padding to ensure that the resulting string is
+            exactly the specified length
+            </summary>
+            <param name="msg"></param>
+            <param name="width"></param>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.RightAdjust(System.String,System.Int32,System.Char)">
+            <summary>
+            Right adjusts a string by truncating or padding to ensure that the resulting string is
+            exactly the specified length
+            </summary>
+            <param name="msg"></param>
+            <param name="width"></param>
+            <param name="fillChar"></param>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.RightAdjust(System.String,System.Int32)">
+            <summary>
+            Right adjusts a string by truncating or padding to ensure that the resulting string is
+            exactly the specified length
+            </summary>
+            <param name="msg"></param>
+            <param name="width"></param>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.BoxFormat(System.ReadOnlySpan{System.Char},System.Int32,System.Int32,System.Char,System.Char)">
+            <summary>
+            Adjusts a string to a display with specified width and height by truncating or padding to
+            fill each line with complete words and spaces. This method ensures that the resulting
+            string is exactly height * width characters long.
+            </summary>
+            <param name="msg"></param>
+            <param name="width">Display width</param>
+            <param name="height">Display height</param>
+            <param name="wordDelimiter">Word separator character.</param>
+            <param name="fillChar">Fill character.</param>
+        </member>
+        <member name="T:LTRData.Extensions.IO.ConsoleSupport">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.IO.ConsoleSupport.GetConsoleOutputDeviceName">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:LTRData.Extensions.IO.ConsoleSupport.ConsoleSync">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.IO.ConsoleSupport.WriteMsgTraceLevel">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.IO.ConsoleSupport.WriteMsg(System.Diagnostics.TraceLevel,System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:LTRData.Extensions.IO.IOExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.IO.IOExtensions.IsWindows">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.IO.IOExtensions.ReadLineAsync(System.IO.TextReader,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="reader"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.IO.IOExtensions.ReadAsync(System.IO.TextReader,System.Char[],System.Int32,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="reader"></param>
+            <param name="buffer"></param>
+            <param name="index"></param>
+            <param name="count"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.IO.IOExtensions.WriteLineAsync(System.IO.TextWriter,System.ReadOnlyMemory{System.Char},System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="writer"></param>
+            <param name="str"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.IO.IOExtensions.WriteAsync(System.IO.TextWriter,System.ReadOnlyMemory{System.Char},System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="writer"></param>
+            <param name="str"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.IO.IOExtensions.FlushAsync(System.IO.TextWriter,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="writer"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.IO.IOExtensions.EnumerateLines(System.IO.TextReader)">
+            <summary>
+            Reads lines from a <see cref="T:System.IO.TextReader"/> as an <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+            </summary>
+            <param name="reader"><see cref="T:System.IO.TextReader"/> object to read</param>
+            <returns>Enumeration of lines</returns>
+        </member>
+        <member name="T:LTRData.Extensions.Split.SpanSplitExtensions">
+            <summary>
+            Extension methods for splitting <see cref="T:System.ReadOnlySpan`1"/> or <see cref="T:System.Span`1"/> in allocation-free iterations,
+            or splitting <see cref="T:System.ReadOnlyMemory`1"/> or <see cref="T:System.Memory`1"/> without allocating arrays.
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.TokenEnum(System.ReadOnlySpan{System.Char},System.Char,System.StringSplitOptions)">
+            <summary>
+            Returns an enumerator for each delimited token in a span of characters
+            </summary>
+            <param name="chars">Character span to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Reference enumerator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.TokenEnum(System.ReadOnlySpan{System.Char},System.Char,System.Char,System.StringSplitOptions)">
+            <summary>
+            Returns an enumerator for each delimited token in a span of characters
+            </summary>
+            <param name="chars">Character span to search</param>
+            <param name="delimiter1">Delimiter alt 1 between each token</param>
+            <param name="delimiter2">Delimiter alt 1 between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Reference enumerator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.TokenEnum(System.ReadOnlySpan{System.Char},System.ReadOnlySpan{System.Char},System.StringSplitOptions)">
+            <summary>
+            Returns an enumerator for each delimited token in a span of characters
+            </summary>
+            <param name="chars">Character span to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Reference enumerator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.TokenEnumReverse(System.ReadOnlySpan{System.Char},System.Char,System.StringSplitOptions)">
+            <summary>
+            Returns a reverse enumerator for each delimited token in a span of characters
+            </summary>
+            <param name="chars">Character span to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Reference enumerator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.TokenEnumReverse(System.ReadOnlySpan{System.Char},System.Char,System.Char,System.StringSplitOptions)">
+            <summary>
+            Returns a reverse enumerator for each delimited token in a span of characters
+            </summary>
+            <param name="chars">Character span to search</param>
+            <param name="delimiter1">Delimiter alt 1 between each token</param>
+            <param name="delimiter2">Delimiter alt 2 between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Reference enumerator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.TokenEnumReverse(System.ReadOnlySpan{System.Char},System.ReadOnlySpan{System.Char},System.StringSplitOptions)">
+            <summary>
+            Returns a reverse enumerator for each delimited token in a span of characters
+            </summary>
+            <param name="chars">Character span to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Reference enumerator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.TokenEnum(System.ReadOnlyMemory{System.Char},System.Char,System.StringSplitOptions)">
+            <summary>
+            Returns an enumerator for each delimited token in a block of memory
+            </summary>
+            <param name="chars">Character memory block to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Iterator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.TokenEnum(System.ReadOnlyMemory{System.Char},System.Char,System.Char,System.StringSplitOptions)">
+            <summary>
+            Returns an enumerator for each delimited token in a block of memory
+            </summary>
+            <param name="chars">Character memory block to search</param>
+            <param name="delimiter1">First of two possible delimiters between each token</param>
+            <param name="delimiter2">Second of two possible delimiters between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Iterator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.TokenEnumReverse(System.ReadOnlyMemory{System.Char},System.Char,System.StringSplitOptions)">
+            <summary>
+            Returns a reverse enumerator for each delimited token in a block of memory
+            </summary>
+            <param name="chars">Character memory block to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Iterator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.TokenEnum(System.ReadOnlyMemory{System.Char},System.ReadOnlyMemory{System.Char},System.StringSplitOptions)">
+            <summary>
+            Returns an enumerator for each delimited token in a block of memory
+            </summary>
+            <param name="chars">Character memory block to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Iterator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.TokenEnumReverse(System.ReadOnlyMemory{System.Char},System.ReadOnlyMemory{System.Char},System.StringSplitOptions)">
+            <summary>
+            Returns a reverse enumerator for each delimited token in a block of memory
+            </summary>
+            <param name="chars">Character memory block to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Iterator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.TokenEnum(System.ReadOnlyMemory{System.Char},System.ReadOnlyMemory{System.Char},System.StringSplitOptions,System.StringComparison)">
+            <summary>
+            Returns an enumerator for each delimited token in a block of memory
+            </summary>
+            <param name="chars">Character memory block to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <param name="comparison">Comparison used when searching for delimiters</param>
+            <returns>Iterator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.Split(System.ReadOnlySpan{System.Char},System.Char,System.StringSplitOptions)">
+            <summary>
+            Returns an enumerator for each delimited token in a span of characters
+            </summary>
+            <param name="chars">Character span to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Reference enumerator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.Split(System.ReadOnlySpan{System.Char},System.ReadOnlySpan{System.Char},System.StringSplitOptions)">
+            <summary>
+            Returns an enumerator for each delimited token in a span of characters
+            </summary>
+            <param name="chars">Character span to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Reference enumerator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.SplitReverse(System.ReadOnlySpan{System.Char},System.Char,System.StringSplitOptions)">
+            <summary>
+            Returns a reverse enumerator for each delimited token in a span of characters
+            </summary>
+            <param name="chars">Character span to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Reference enumerator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.SplitReverse(System.ReadOnlySpan{System.Char},System.ReadOnlySpan{System.Char},System.StringSplitOptions)">
+            <summary>
+            Returns a reverse enumerator for each delimited token in a span of characters
+            </summary>
+            <param name="chars">Character span to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Reference enumerator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.Split(System.ReadOnlyMemory{System.Char},System.Char,System.StringSplitOptions)">
+            <summary>
+            Returns an enumerator for each delimited token in a block of memory
+            </summary>
+            <param name="chars">Character memory block to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Iterator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.Split(System.ReadOnlyMemory{System.Char},System.Char,System.Char,System.StringSplitOptions)">
+            <summary>
+            Returns an enumerator for each delimited token in a block of memory
+            </summary>
+            <param name="chars">Character memory block to search</param>
+            <param name="delimiter1">First of two possible delimiters between each token</param>
+            <param name="delimiter2">Second of two possible delimiters between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Iterator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.SplitReverse(System.ReadOnlyMemory{System.Char},System.Char,System.StringSplitOptions)">
+            <summary>
+            Returns a reverse enumerator for each delimited token in a block of memory
+            </summary>
+            <param name="chars">Character memory block to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Iterator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.Split(System.ReadOnlyMemory{System.Char},System.ReadOnlyMemory{System.Char},System.StringSplitOptions)">
+            <summary>
+            Returns an enumerator for each delimited token in a block of memory
+            </summary>
+            <param name="chars">Character memory block to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Iterator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.SplitReverse(System.ReadOnlyMemory{System.Char},System.ReadOnlyMemory{System.Char},System.StringSplitOptions)">
+            <summary>
+            Returns a reverse enumerator for each delimited token in a block of memory
+            </summary>
+            <param name="chars">Character memory block to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <returns>Iterator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.SpanSplitExtensions.Split(System.ReadOnlyMemory{System.Char},System.ReadOnlyMemory{System.Char},System.StringSplitOptions,System.StringComparison)">
+            <summary>
+            Returns an enumerator for each delimited token in a block of memory
+            </summary>
+            <param name="chars">Character memory block to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <param name="comparison">Comparison used when searching for delimiters</param>
+            <returns>Iterator</returns>
+        </member>
+        <member name="T:LTRData.Extensions.Split.StringSplitByCharEnumerator">
+            <summary>
+            Ref enumerator used to enumerate tokens in a <see cref="T:System.ReadOnlySpan`1"/> or <see cref="T:System.Span`1"/>
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Split.StringSplitByCharEnumerator.Current">
+            <summary>
+            Current token in enumeration
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharEnumerator.MoveNext">
+            <summary>
+            Moves to next token in enumeration
+            </summary>
+            <returns>True if another token was found, false otherwise</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharEnumerator.MoveNextForward">
+            <summary>
+            Moves to next token in forward order
+            </summary>
+            <returns>True if another token was found, false otherwise</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharEnumerator.MoveNextReverse">
+            <summary>
+            Moves to next token in reverse order
+            </summary>
+            <returns>True if another token was found, false otherwise</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharEnumerator.First">
+            <summary>
+            Returns first token in enumeration
+            </summary>
+            <returns>First token in enumeration</returns>
+            <exception cref="T:System.InvalidOperationException">Span is empty</exception>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharEnumerator.FirstOrDefault">
+            <summary>
+            Returns first token in enumeration or empty span if source is empty
+            </summary>
+            <returns>First token in enumeration or empty span if source is empty</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharEnumerator.Last">
+            <summary>
+            Returns last token in enumeration
+            </summary>
+            <returns>Last token in enumeration</returns>
+            <exception cref="T:System.InvalidOperationException">Span is empty</exception>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharEnumerator.LastOrDefault">
+            <summary>
+            Returns last token in enumeration or empty span if source is empty
+            </summary>
+            <returns>Last token in enumeration or empty span if source is empty</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharEnumerator.ElementAt(System.Int32)">
+            <summary>
+            Returns zero-based token in enumeration
+            </summary>
+            <param name="pos">Zero-based index of token to return</param>
+            <returns>Zero-based token in enumeration</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Source span contains fewer tokens than the number requested</exception>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharEnumerator.ElementAtOrDefault(System.Int32)">
+            <summary>
+            Returns zero-based token in enumeration or empty span if source is empty
+            </summary>
+            <param name="pos">Zero-based index of token to return</param>
+            <returns>Zero-based token in enumeration or empty span if source is empty</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharEnumerator.GetEnumerator">
+            <summary>
+            Gets this enumerator
+            </summary>
+            <returns>This enumerator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharEnumerator.#ctor(System.ReadOnlySpan{System.Char},System.Char,System.StringSplitOptions,System.Boolean)">
+            <summary>
+            Constructs an token enumerator over a span
+            </summary>
+            <param name="chars">Span to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <param name="reverse">Selects reverse or forward order</param>
+        </member>
+        <member name="T:LTRData.Extensions.Split.StringSplitByCharsEnumerator">
+            <summary>
+            Ref enumerator used to enumerate tokens in a <see cref="T:System.ReadOnlySpan`1"/> or <see cref="T:System.Span`1"/>
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Split.StringSplitByCharsEnumerator.Current">
+            <summary>
+            Current token in enumeration
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharsEnumerator.MoveNext">
+            <summary>
+            Moves to next token in enumeration
+            </summary>
+            <returns>True if another token was found, false otherwise</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharsEnumerator.MoveNextForward">
+            <summary>
+            Moves to next token in forward order
+            </summary>
+            <returns>True if another token was found, false otherwise</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharsEnumerator.MoveNextReverse">
+            <summary>
+            Moves to next token in reverse order
+            </summary>
+            <returns>True if another token was found, false otherwise</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharsEnumerator.First">
+            <summary>
+            Returns first token in enumeration
+            </summary>
+            <returns>First token in enumeration</returns>
+            <exception cref="T:System.InvalidOperationException">Span is empty</exception>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharsEnumerator.FirstOrDefault">
+            <summary>
+            Returns first token in enumeration or empty span if source is empty
+            </summary>
+            <returns>First token in enumeration or empty span if source is empty</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharsEnumerator.Last">
+            <summary>
+            Returns last token in enumeration
+            </summary>
+            <returns>Last token in enumeration</returns>
+            <exception cref="T:System.InvalidOperationException">Span is empty</exception>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharsEnumerator.LastOrDefault">
+            <summary>
+            Returns last token in enumeration or empty span if source is empty
+            </summary>
+            <returns>Last token in enumeration or empty span if source is empty</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharsEnumerator.ElementAt(System.Int32)">
+            <summary>
+            Returns zero-based token in enumeration
+            </summary>
+            <param name="pos">Zero-based index of token to return</param>
+            <returns>Zero-based token in enumeration</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Source span contains fewer tokens than the number requested</exception>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharsEnumerator.ElementAtOrDefault(System.Int32)">
+            <summary>
+            Returns zero-based token in enumeration or empty span if source is empty
+            </summary>
+            <param name="pos">Zero-based index of token to return</param>
+            <returns>Zero-based token in enumeration or empty span if source is empty</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharsEnumerator.GetEnumerator">
+            <summary>
+            Gets this enumerator
+            </summary>
+            <returns>This enumerator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByCharsEnumerator.#ctor(System.ReadOnlySpan{System.Char},System.Char,System.Char,System.StringSplitOptions,System.Boolean)">
+            <summary>
+            Constructs an token enumerator over a span
+            </summary>
+            <param name="chars">Span to search</param>
+            <param name="delimiter1">Delimiter alt 1 between each token</param>
+            <param name="delimiter2">Delimiter alt 2 between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <param name="reverse">Selects reverse or forward order</param>
+        </member>
+        <member name="T:LTRData.Extensions.Split.StringSplitByStringEnumerator">
+            <summary>
+            Ref enumerator used to enumerate tokens in a <see cref="T:System.ReadOnlySpan`1"/> or <see cref="T:System.Span`1"/>
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Split.StringSplitByStringEnumerator.Current">
+            <summary>
+            Current token in enumeration
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByStringEnumerator.MoveNext">
+            <summary>
+            Moves to next token in enumeration
+            </summary>
+            <returns>True if another token was found, false otherwise</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByStringEnumerator.MoveNextForward">
+            <summary>
+            Moves to next token in forward order
+            </summary>
+            <returns>True if another token was found, false otherwise</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByStringEnumerator.MoveNextReverse">
+            <summary>
+            Moves to next token in reverse order
+            </summary>
+            <returns>True if another token was found, false otherwise</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByStringEnumerator.First">
+            <summary>
+            Returns first token in enumeration
+            </summary>
+            <returns>First token in enumeration</returns>
+            <exception cref="T:System.InvalidOperationException">Span is empty</exception>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByStringEnumerator.FirstOrDefault">
+            <summary>
+            Returns first token in enumeration or empty span if source is empty
+            </summary>
+            <returns>First token in enumeration or empty span if source is empty</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByStringEnumerator.Last">
+            <summary>
+            Returns last token in enumeration
+            </summary>
+            <returns>Last token in enumeration</returns>
+            <exception cref="T:System.InvalidOperationException">Span is empty</exception>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByStringEnumerator.LastOrDefault">
+            <summary>
+            Returns last token in enumeration or empty span if source is empty
+            </summary>
+            <returns>Last token in enumeration or empty span if source is empty</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByStringEnumerator.ElementAt(System.Int32)">
+            <summary>
+            Returns zero-based token in enumeration
+            </summary>
+            <param name="pos">Zero-based index of token to return</param>
+            <returns>Zero-based token in enumeration</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Source span contains fewer tokens than the number requested</exception>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByStringEnumerator.ElementAtOrDefault(System.Int32)">
+            <summary>
+            Returns zero-based token in enumeration or empty span if source is empty
+            </summary>
+            <param name="pos">Zero-based index of token to return</param>
+            <returns>Zero-based token in enumeration or empty span if source is empty</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByStringEnumerator.GetEnumerator">
+            <summary>
+            Gets this enumerator
+            </summary>
+            <returns>This enumerator</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Split.StringSplitByStringEnumerator.#ctor(System.ReadOnlySpan{System.Char},System.ReadOnlySpan{System.Char},System.StringSplitOptions,System.Boolean)">
+            <summary>
+            Constructs an token enumerator over a span
+            </summary>
+            <param name="chars">Span to search</param>
+            <param name="delimiter">Delimiter between each token</param>
+            <param name="options"><see cref="T:System.StringSplitOptions"/> options to apply to search</param>
+            <param name="reverse">Selects reverse or forward order</param>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,491 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LTRData.Extensions</name>
+    </assembly>
+    <members>
+        <member name="T:LTRData.Extensions.Async.AsyncCompatExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:LTRData.Extensions.Buffers.BufferExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.SetBit(System.Collections.Generic.IList{System.Byte},System.Int32)">
+            <summary>
+            Sets a bit to 1 in a bit field.
+            </summary>
+            <param name="data">Bit field</param>
+            <param name="bitnumber">Bit number to set to 1</param>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.SetBit(System.Collections.Generic.IList{System.Byte},System.Int64)">
+            <summary>
+            Sets a bit to 1 in a bit field.
+            </summary>
+            <param name="data">Bit field</param>
+            <param name="bitnumber">Bit number to set to 1</param>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ClearBit(System.Collections.Generic.IList{System.Byte},System.Int32)">
+            <summary>
+            Sets a bit to 0 in a bit field.
+            </summary>
+            <param name="data">Bit field</param>
+            <param name="bitnumber">Bit number to set to 0</param>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ClearBit(System.Collections.Generic.IList{System.Byte},System.Int64)">
+            <summary>
+            Sets a bit to 0 in a bit field.
+            </summary>
+            <param name="data">Bit field</param>
+            <param name="bitnumber">Bit number to set to 0</param>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Append``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Appends an item to an enumeration
+            </summary>
+            <typeparam name="T">Type of items in enumeration</typeparam>
+            <param name="values">Source enumeration</param>
+            <param name="value">Item to append</param>
+            <returns>New enumeration with item appended</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Prepend``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Prepends an item to an enumeration
+            </summary>
+            <typeparam name="T">Type of items in enumeration</typeparam>
+            <param name="values">Source enumeration</param>
+            <param name="value">Item to prepend</param>
+            <returns>New enumeration with item prepended</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Split(System.String,System.Char,System.Int32,System.StringSplitOptions)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Split(System.String,System.Char,System.StringSplitOptions)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Split(System.String,System.String,System.Int32,System.StringSplitOptions)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Split(System.String,System.String,System.StringSplitOptions)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Contains(System.String,System.Char)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Contains(System.String,System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.Contains(System.String,System.String,System.StringComparison)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.StartsWith(System.String,System.Char)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.EndsWith(System.String,System.Char)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.MaxBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>Returns the maximum value in a generic sequence according to a specified key selector function.</summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="source" />.</typeparam>
+            <typeparam name="TKey">The type of key to compare elements by.</typeparam>
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="keySelector">A function to extract the key for each element.</param>
+            <returns>The value with the maximum key in the sequence.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="source" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentException">No key extracted from <paramref name="source" /> implements the <see cref="T:System.IComparable" /> or <see cref="T:System.IComparable`1" /> interface.</exception>
+            <remarks>
+            <para>If <typeparamref name="TKey" /> is a reference type and the source sequence is empty or contains only values that are <see langword="null" />, this method returns <see langword="null" />.</para>
+            </remarks>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.MaxBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+            <summary>Returns the maximum value in a generic sequence according to a specified key selector function.</summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="source" />.</typeparam>
+            <typeparam name="TKey">The type of key to compare elements by.</typeparam>
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="keySelector">A function to extract the key for each element.</param>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IComparer`1" /> to compare keys.</param>
+            <returns>The value with the maximum key in the sequence.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="source" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentException">No key extracted from <paramref name="source" /> implements the <see cref="T:System.IComparable" /> or <see cref="T:System.IComparable`1" /> interface.</exception>
+            <remarks>
+            <para>If <typeparamref name="TKey" /> is a reference type and the source sequence is empty or contains only values that are <see langword="null" />, this method returns <see langword="null" />.</para>
+            </remarks>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.MinBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.MinBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Collections.Generic.IComparer{``1})">
+            <summary>Returns the maximum value in a generic sequence according to a specified key selector function.</summary>
+            <typeparam name="TSource">The type of the elements of <paramref name="source" />.</typeparam>
+            <typeparam name="TKey">The type of key to compare elements by.</typeparam>
+            <param name="source">A sequence of values to determine the maximum value of.</param>
+            <param name="keySelector">A function to extract the key for each element.</param>
+            <param name="comparer">The <see cref="T:System.Collections.Generic.IComparer`1" /> to compare keys.</param>
+            <returns>The value with the maximum key in the sequence.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="source" /> is <see langword="null" />.</exception>
+            <exception cref="T:System.ArgumentException">No key extracted from <paramref name="source" /> implements the <see cref="T:System.IComparable" /> or <see cref="T:System.IComparable`1" /> interface.</exception>
+            <remarks>
+            <para>If <typeparamref name="TKey" /> is a reference type and the source sequence is empty or contains only values that are <see langword="null" />, this method returns <see langword="null" />.</para>
+            </remarks>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.RentArray``1(System.Int32)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.BufferExtensions.ReturnArray``1(``0[])">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:LTRData.Extensions.Buffers.SingleValueEnumerable">
+            <summary>
+            Provides allocation-free enumerables for a single item
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.SingleValueEnumerable.Get``1(``0)">
+            <summary>
+            Returns an allocation-free enumerable for a single item
+            </summary>
+            <param name="value">Item to enumerate once</param>
+            <returns>Enumerable that will enumerate supplied item once</returns>
+        </member>
+        <member name="T:LTRData.Extensions.Buffers.SingleValueEnumerable`1">
+            <summary>
+            An allocation-free enumerable for a single item
+            </summary>
+            <typeparam name="T">Type of item</typeparam>
+        </member>
+        <member name="P:LTRData.Extensions.Buffers.SingleValueEnumerable`1.Value">
+            <summary>
+            Value to enumerate once
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.SingleValueEnumerable`1.#ctor(`0)">
+            <summary>
+            Initializes a new enumerable with an item
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.SingleValueEnumerable`1.GetEnumerator">
+            <summary>
+            Returns enumerator for this enumerable
+            </summary>
+            <returns>Enumerator for this enumerable</returns>
+        </member>
+        <member name="T:LTRData.Extensions.Buffers.SingleValueEnumerable`1.SingleValueEnumerator">
+            <summary>
+            An allocation-free enumerator for a single item
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.SingleValueEnumerable`1.SingleValueEnumerator.#ctor(`0)">
+            <summary>
+            Initializes a new enumerator with an item
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="P:LTRData.Extensions.Buffers.SingleValueEnumerable`1.SingleValueEnumerator.Value">
+            <summary>
+            Value to enumerate once
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Buffers.SingleValueEnumerable`1.SingleValueEnumerator.Started">
+            <summary>
+            Indicates whether enumeration has started
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.Buffers.SingleValueEnumerable`1.SingleValueEnumerator.Current">
+            <summary>
+            Current value in enumeration
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.SingleValueEnumerable`1.SingleValueEnumerator.MoveNext">
+            <summary>
+            Moves to next value in enumeration
+            </summary>
+            <returns>True if a new item is available from enumeration, false if end has been reached</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Buffers.SingleValueEnumerable`1.SingleValueEnumerator.Reset">
+            <summary>
+            Restarts enumeration from beginning
+            </summary>
+        </member>
+        <member name="T:LTRData.Extensions.CommandLine.CommandLineParser">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.CommandLine.CommandLineParser.ParseCommandLine(System.Collections.Generic.IEnumerable{System.String},System.StringComparer)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.CommandLine.CommandLineParser.ParseCommandLineParameter(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:LTRData.Extensions.Conversion.DateTimeConversion">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Conversion.DateTimeConversion.TryFileTimeToDateTime(System.Int64)">
+            <summary>
+            Attempts to convert FILETIME value to DateTime value
+            </summary>
+            <param name="fileTime">FILETIME value to convert</param>
+            <returns>Converted DateTime value if conversion was successful, null otherwise</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Conversion.DateTimeConversion.TryFileTimeToDateTimeUtc(System.Int64)">
+            <summary>
+            Attempts to convert FILETIME value to DateTime value
+            </summary>
+            <param name="fileTime">FILETIME value to convert</param>
+            <returns>Converted DateTime value if conversion was successful, null otherwise</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Conversion.DateTimeConversion.TryFileTimeToDateTimeOffset(System.Int64)">
+            <summary>
+            Attempts to convert FILETIME value to DateTimeOffset value
+            </summary>
+            <param name="fileTime">FILETIME value to convert</param>
+            <returns>Converted DateTimeOffset value if conversion was successful, null otherwise</returns>
+        </member>
+        <member name="T:LTRData.Extensions.Formatting.ExceptionExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.ExceptionExtensions.Enumerate(System.Exception)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.ExceptionExtensions.EnumerateMessages(System.Exception)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.ExceptionExtensions.JoinMessages(System.Exception)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.ExceptionExtensions.JoinMessages(System.Exception,System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:LTRData.Extensions.Formatting.HexExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ParseHexString(System.Collections.Generic.IEnumerable{System.Char})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.WriteHex(System.IO.TextWriter,System.Collections.Generic.IEnumerable{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.FormatHexLines(System.Collections.Generic.IEnumerable{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.Collections.Generic.ICollection{System.Byte})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.Collections.Generic.ICollection{System.Byte},System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.Collections.Generic.IEnumerable{System.Byte})">
+            <summary>
+            Returns a string with each byte expressed in two-character hexadecimal notation.
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.HexExtensions.ToHexString(System.Collections.Generic.IEnumerable{System.Byte},System.String)">
+            <summary>
+            Returns a string with each byte expressed in two-character hexadecimal notation.
+            </summary>
+        </member>
+        <member name="T:LTRData.Extensions.Formatting.SizeFormatting">
+            <summary>
+            Methods for formatting byte sizes with MB, GB etc suffixes
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.SizeFormatting.FormatBytes(System.UInt64)">
+            <summary>
+            Formats byte sizes with MB, GB etc suffixes
+            </summary>
+            <param name="size">Number of bytes</param>
+            <returns>Number of bytes formatted as string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.SizeFormatting.FormatBytes(System.UInt64,System.Int32)">
+            <summary>
+            Formats byte sizes with MB, GB etc suffixes
+            </summary>
+            <param name="size">Number of bytes</param>
+            <param name="precision">Number of decimals in formatted string</param>
+            <returns>Number of bytes formatted as string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.SizeFormatting.FormatBytes(System.Int64,System.Int32)">
+            <summary>
+            Formats byte sizes with MB, GB etc suffixes
+            </summary>
+            <param name="size">Number of bytes</param>
+            <param name="precision">Number of decimals in formatted string</param>
+            <returns>Number of bytes formatted as string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.SizeFormatting.FormatBytes(System.Int64)">
+            <summary>
+            Formats byte sizes with MB, GB etc suffixes
+            </summary>
+            <param name="size">Number of bytes</param>
+            <returns>Number of bytes formatted as string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.SizeFormatting.ParseSuffixedSize(System.String)">
+            <summary>
+            Attempts to parse a suffixed byte size, for example 1M as a numeric value.
+            </summary>
+            <param name="formatted">Suffixed size to convert</param>
+            <returns>Number of bytes if sring was successfully parsed, null otherwise</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.SizeFormatting.TryParseSuffixedSize(System.String,System.Int64@)">
+            <summary>
+            Attempts to parse a suffixed byte size, for example 1M as a numeric value.
+            </summary>
+            <param name="formatted">Suffixed size to convert</param>
+            <param name="parseSuffixedSizeRet">Number of bytes if sring was successfully parsed</param>
+            <returns>True if sring was successfully parsed, false otherwise</returns>
+        </member>
+        <member name="T:LTRData.Extensions.Formatting.StringFormatting">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.InitialCapital(System.String,System.Globalization.CultureInfo,System.Int32)">
+            <summary>
+            Capitalize first character in each word.
+            </summary>
+            <param name="str">String with words</param>
+            <param name="CultureInfo"></param>
+            <param name="MinWordLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.InitialCapitalInvariant(System.String,System.Int32)">
+            <summary>
+            Capitalize first character in each word.
+            </summary>
+            <param name="str">String with words</param>
+            <param name="MinWordLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.InitialCapital(System.String,System.Int32)">
+            <summary>
+            Capitalize first character in each word.
+            </summary>
+            <param name="str">String with words</param>
+            <param name="MinWordLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.InitialCapitalInvariantJoin(System.Collections.Generic.IEnumerable{System.String},System.Int32)">
+            <summary>
+            Capitalize first character in each word and joins result as space-delimited string.
+            </summary>
+            <param name="words">String with words</param>
+            <param name="MinWordLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.InitialCapitalJoin(System.Collections.Generic.IEnumerable{System.String},System.Int32)">
+            <summary>
+            Capitalize first character in each word and joins result as space-delimited string.
+            </summary>
+            <param name="words">String with words</param>
+            <param name="MinWordLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.GetBytes(System.Text.Encoding,System.String,System.Int32,System.Int32)">
+            <summary>
+            </summary>
+            <param name="encoding"></param>
+            <param name="s"></param>
+            <param name="index"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.Join(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Encapsulation of <see cref="M:System.String.Join(System.String,System.Collections.Generic.IEnumerable{System.String})"/> as an extension method
+            </summary>
+            <param name="strings">String to join</param>
+            <param name="separator">Separator to insert between each joined element</param>
+            <returns>Joined string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.Join(System.String[],System.String)">
+            <summary>
+            Encapsulation of <see cref="M:System.String.Join(System.String,System.String[])"/> as an extension method
+            </summary>
+            <param name="strings">String to join</param>
+            <param name="separator">Separator to insert between each joined element</param>
+            <returns>Joined string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.Join(System.Collections.Generic.IEnumerable{System.String},System.Char)">
+            <summary>
+            Encapsulation of <see cref="M:System.String.Join``1(System.String,System.Collections.Generic.IEnumerable{``0})"/> as an extension method
+            </summary>
+            <param name="strings">String to join</param>
+            <param name="separator">Separator to insert between each joined element</param>
+            <returns>Joined string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.Join(System.String[],System.Char)">
+            <summary>
+            Encapsulation of <see cref="M:System.String.Join(System.String,System.String[])"/> as an extension method
+            </summary>
+            <param name="strings">String to join</param>
+            <param name="separator">Separator to insert between each joined element</param>
+            <returns>Joined string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.Concat(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Encapsulation of <see cref="M:System.String.Concat(System.String[])"/> as an extension method
+            </summary>
+            <param name="strings">String to join</param>
+            <returns>Joined string</returns>
+        </member>
+        <member name="M:LTRData.Extensions.Formatting.StringFormatting.Concat(System.String[])">
+            <summary>
+            Encapsulation of <see cref="M:System.String.Concat(System.String[])"/> as an extension method
+            </summary>
+            <param name="strings">String to join</param>
+            <returns>Joined string</returns>
+        </member>
+        <member name="T:LTRData.Extensions.IO.ConsoleSupport">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.IO.ConsoleSupport.GetConsoleOutputDeviceName">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:LTRData.Extensions.IO.ConsoleSupport.ConsoleSync">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:LTRData.Extensions.IO.IOExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:LTRData.Extensions.IO.IOExtensions.IsWindows">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:LTRData.Extensions.IO.IOExtensions.EnumerateLines(System.IO.TextReader)">
+            <summary>
+            Reads lines from a <see cref="T:System.IO.TextReader"/> as an <see cref="T:System.Collections.Generic.IEnumerable`1"/>.
+            </summary>
+            <param name="reader"><see cref="T:System.IO.TextReader"/> object to read</param>
+            <returns>Enumeration of lines</returns>
+        </member>
+    </members>
+</doc>
