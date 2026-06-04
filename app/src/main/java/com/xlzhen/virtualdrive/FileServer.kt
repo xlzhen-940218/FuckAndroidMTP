@@ -22,6 +22,9 @@ class FileServer(private val baseDir: File, private val port: Int = 8080) {
                     try {
                         val client = serverSocket!!.accept()
                         client.tcpNoDelay = true // 禁用 Nagle 算法，降低 I/O 延迟
+                        // 【新增】：暴改底层 TCP 窗口大小为 4MB，极大提升网络吞吐量
+                        client.receiveBufferSize = 4 * 1024 * 1024
+                        client.sendBufferSize = 4 * 1024 * 1024
                         handleClient(client)
                     } catch (e: SocketException) {
                         if (!isRunning) break
@@ -104,7 +107,7 @@ class FileServer(private val baseDir: File, private val port: Int = 8080) {
 
                                     output.writeInt(actualRead)
                                     if (actualRead > 0) {
-                                        val chunkBuffer = ByteArray(65536) // 固定的 64KB 内存缓存
+                                        val chunkBuffer = ByteArray(4 * 1024 * 1024) // 固定的 64KB 内存缓存
                                         var remaining = actualRead
                                         while (remaining > 0) {
                                             val toRead = if (remaining > chunkBuffer.size) chunkBuffer.size else remaining
@@ -129,7 +132,7 @@ class FileServer(private val baseDir: File, private val port: Int = 8080) {
 
                             RandomAccessFile(targetFile, "rw").use { raf ->
                                 raf.seek(offset)
-                                val chunkBuffer = ByteArray(65536) // 固定的 64KB 内存缓存
+                                val chunkBuffer = ByteArray(4 * 1024 * 1024) // 固定的 64KB 内存缓存
                                 var remaining = length
                                 while (remaining > 0) {
                                     val toRead = if (remaining > chunkBuffer.size) chunkBuffer.size else remaining

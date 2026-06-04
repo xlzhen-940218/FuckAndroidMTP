@@ -25,8 +25,16 @@ namespace AndroidVirtualDrive
 
         public void Connect(string ip, int port)
         {
-            _client = new TcpClient(ip, port) { NoDelay = true };
+            _client = new TcpClient();
+            _client.NoDelay = true;
+
+            // 【新增】：客户端同步扩大 TCP 窗口为 4MB
+            _client.ReceiveBufferSize = 4 * 1024 * 1024;
+            _client.SendBufferSize = 4 * 1024 * 1024;
+
+            _client.Connect(ip, port);
             _stream = _client.GetStream();
+
             Console.WriteLine(Language.L($"[+] 成功连接到安卓端 {ip}:{port}",$"[+] Connected Android device {ip}:{port}"));
             // 刚连上就发送指令 10 获取手机型号
             try

@@ -14,3 +14,9 @@
 .externalNativeBuild
 .cxx
 local.properties
+/.idea
+/AndroidVirtualDrive/bin
+/AndroidVirtualDrive/obj
+/AndroidVirtualDrive/publish
+*.apk
+/app/release
